@@ -1,0 +1,20 @@
+name: Validate dataset
+on:
+  push:
+    branches: [main, train, validate, test]
+  workflow_dispatch:
+jobs:
+  validate:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-11-arm, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          lfs: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.14'
+      - run: python tools/validate.py --branch "${{ github.ref_name }}"

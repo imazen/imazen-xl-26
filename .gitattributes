@@ -1,0 +1,16 @@
+*.md text eol=lf
+*.tsv text eol=lf
+*.cff text eol=lf
+*.py text eol=lf
+*.yml text eol=lf
+*.jpg -text
+*.jpeg -text
+*.png -text
+*.heic -text
+*.dng -text
+*.jxl -text
+originals/** filter=lfs diff=lfs merge=lfs -text
+png-p3/** filter=lfs diff=lfs merge=lfs -text
+png-srgb/** filter=lfs diff=lfs merge=lfs -text
+jxl-p3/** filter=lfs diff=lfs merge=lfs -text
+jxl-srgb/** filter=lfs diff=lfs merge=lfs -text
